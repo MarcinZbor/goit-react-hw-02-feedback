@@ -5,8 +5,6 @@ class App extends React.Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    // total: 0,
-    // positiveFeedback: 0
 
   };
 
@@ -16,8 +14,15 @@ onLeaveFeedback = type => {
   }))
 
 }
-// countTotalFeedback()
-// countPositiveFeedbackPercentage()
+countTotalFeedback = () => {
+  const { good, neutral, bad} = this.state;
+  return good + neutral + bad
+}
+
+countPositiveFeedbackPercentage = () => {
+const {good} = this.state;
+return good
+}
 
 
   render() {
@@ -31,6 +36,8 @@ onLeaveFeedback = type => {
         <p>Good: {this.state.good}</p>
         <p>Neutral: {this.state.neutral}</p>
         <p>Bad: {this.state.bad}</p>
+        <p>Total: {this.countTotalFeedback()} </p>
+        <p>Positive Feedback: {this.countPositiveFeedbackPercentage()} </p>
       
       </>
     );
