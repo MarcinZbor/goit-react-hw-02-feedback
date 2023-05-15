@@ -1,46 +1,38 @@
 import React from 'react';
+import css from './App.module.css';
+import Statistics from './Statistics/Statistics';
 
 class App extends React.Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
-
   };
 
-onLeaveFeedback = type => {
-  this.setState(prevState => ({
-    [type]: prevState[type] + 1
-  }))
+  onLeaveFeedback = type => {
+    this.setState(prevState => ({
+      [type]: prevState[type] + 1,
+    }));
+  };
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
 
-}
-countTotalFeedback = () => {
-  const { good, neutral, bad} = this.state;
-  return good + neutral + bad
-}
-
-countPositiveFeedbackPercentage = () => {
-const {good} = this.state;
-return Math.round((good / this.countTotalFeedback()) * 100);
-}
-
+  PositiveFeedbackPercentage = () => {
+    const { good } = this.state;
+    return Math.round((good / this.countTotalFeedback()) * 100);
+  };
 
   render() {
-    return (
-      <>
-        <h1>Please leave feedback</h1>
-        <button type="button" onClick={() => this.onLeaveFeedback('good')}>Good</button>
-        <button type="button" onClick={() => this.onLeaveFeedback('neutral')}>Neutral</button>
-        <button type="button" onClick={() => this.onLeaveFeedback('bad')}>Bad</button>
-        <h2>Statistics: </h2>
-        <p>Good: {this.state.good}</p>
-        <p>Neutral: {this.state.neutral}</p>
-        <p>Bad: {this.state.bad}</p>
-        <p>Total: {this.countTotalFeedback()} </p>
-        <p>Positive Feedback: {this.countPositiveFeedbackPercentage()} %a </p>
+    const { good, neutral, bad } = this.state;
+    const options = Object.keys(this.state);
+    return <div className="css.container">
+
+
+
       
-      </>
-    );
+    </div>;
   }
 }
 
