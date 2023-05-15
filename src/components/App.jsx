@@ -21,7 +21,7 @@ countTotalFeedback = () => {
 
 countPositiveFeedbackPercentage = () => {
 const {good} = this.state;
-return good
+return Math.round((good / this.countTotalFeedback()) * 100);
 }
 
 
@@ -37,7 +37,7 @@ return good
         <p>Neutral: {this.state.neutral}</p>
         <p>Bad: {this.state.bad}</p>
         <p>Total: {this.countTotalFeedback()} </p>
-        <p>Positive Feedback: {this.countPositiveFeedbackPercentage()} </p>
+        <p>Positive Feedback: {this.countPositiveFeedbackPercentage()} %a </p>
       
       </>
     );
