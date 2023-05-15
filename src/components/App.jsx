@@ -48,7 +48,7 @@ class App extends React.Component {
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           ) : (
-            <Notification message="There is no feedback" />
+            <Notification message="There is no feedback!!!" />
           )}
         </Section>
       </div>
